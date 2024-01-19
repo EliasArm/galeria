@@ -1,6 +1,8 @@
 
 import cerrarGaleria from './cerrarGaleria';
 import slideClick from './slideClick';
+import { cargarAnteriorSiguiente } from './cargarImagen';
+import carousel from './carousel';
 
 const galeria = document.getElementById('galeria');
 galeria.addEventListener('click', (e) => {
@@ -20,5 +22,28 @@ galeria.addEventListener('click', (e) => {
         // console.log(idImagenCarousel);
         slideClick(e);
     }
+
+    
+    // - - - SIGUIENTE IMAGEN
+    if(boton?.dataset?.accion === 'siguiente-imagen'){
+       cargarAnteriorSiguiente('siguiente');
+    }
+
+    // - - - ANTERIOR IMAGEN
+    if(boton?.dataset?.accion === 'anterior-imagen'){
+        cargarAnteriorSiguiente('anterior');
+    }
+
+    // - - - CAROUSEL ADELANTE
+    if(boton?.dataset?.accion === 'siguiente-slide'){
+        carousel('adelante');
+    }
+
+    // - - - CAROUSEL ATRAS
+    if(boton?.dataset?.accion === 'anterior-slide'){
+        carousel('atras');
+    }
+
+
 
 });
